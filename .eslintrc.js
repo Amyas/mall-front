@@ -40,13 +40,5 @@ module.exports = {
         attribute: 1
       }
     ]
-    // 不要开启此项配置，否则会导致格式化出现问题
-    // "vue/max-attributes-per-line": ["error", {
-    //   "singleline": 1,
-    //   "multiline": {
-    //     "max": 1,
-    //     "allowFirstLine": false
-    //   }
-    // }]
   }
 }

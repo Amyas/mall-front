@@ -67,7 +67,7 @@ module.exports = {
         options: {
           limit: 5000,
           name: 'static/img/[name].[hash:7].[ext]',
-          publicPath: config.publicPath
+          publicPath: '/dist/'
         }
       },
       {
