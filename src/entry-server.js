@@ -19,15 +19,12 @@ export default ctx => {
 
     router.onReady(async function () {
       const matchedComponents = router.getMatchedComponents()
-      // 匹配不到的路由，执行 reject 函数，并返回 404
-      if (!matchedComponents.length) {
-        return reject(new Error({ code: 404 }))
-      }
-
-      const promises = Promise.all(
-        matchedComponents.map(Component => {
-          if (Component.asyncData) {
-            return Component.asyncData({
+      // 解析路由内容，并执行asyncData生命周期
+      // 执行asyncData生命周期来获取数据
+      await Promise.all(
+        matchedComponents.map(Components => {
+          if (Components.asyncData) {
+            return Components.asyncData({
               store,
               route: router.currentRoute
             })
@@ -35,14 +32,7 @@ export default ctx => {
         })
       )
 
-      try {
-        await Promise.all(promises)
-      } catch (e) {
-        return reject(e)
-      }
-
       ctx.state = store.state
-
       // 返回可用于渲染的vue对象
       resolve(app)
     }, reject)

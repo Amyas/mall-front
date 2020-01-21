@@ -4,6 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 /* 测试页面 */ const Test = () => import(/* webpackChunkName: "test" */ '@/views/test')
+/* 测试页面 */ const Child = () => import(/* webpackChunkName: "child" */ '@/views/child')
 
 export function createRouter () {
   const router = new Router({
@@ -11,13 +12,13 @@ export function createRouter () {
     routes: [
       {
         path: '/',
-        children: [
-          {
-            path: '/',
-            name: 'Test',
-            component: Test
-          }
-        ]
+        name: 'Test',
+        component: Test
+      },
+      {
+        path: '/child',
+        name: 'Child',
+        component: Child
       }
     ]
   })
