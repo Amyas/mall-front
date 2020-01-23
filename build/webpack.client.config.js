@@ -1,21 +1,21 @@
-const merge = require("webpack-merge");
-const baseConfig = require("./webpack.base.config");
-const VueSSRClientPlugin = require("vue-server-renderer/client-plugin");
+const merge = require('webpack-merge')
+const baseConfig = require('./webpack.base.config')
+const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 
 module.exports = merge(baseConfig, {
-  entry: "./src/entry-client.js",
+  entry: './src/entry-client.js',
   optimization: {
     // webpack4模块分离
     splitChunks: {
-      chunks: "all",
-      automaticNameDelimiter: "-"
+      chunks: 'all',
+      automaticNameDelimiter: '-'
     }
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         exclude: /node_modules/
       }
     ]
@@ -25,4 +25,4 @@ module.exports = merge(baseConfig, {
     // 生成 `vue-ssr-client-manifest.json`。
     new VueSSRClientPlugin()
   ]
-});
+})

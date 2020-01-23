@@ -6,14 +6,14 @@
   </div>
 </template>
 <script>
-export default {
-  mounted() {
-    console.log("item");
+  export default {
+    mounted() {
+      console.log('item')
+    }
   }
-};
 </script>
 <style lang="scss" scoped>
-div {
-  background-color: navy;
-}
+  div {
+    background-color: navy;
+  }
 </style>
