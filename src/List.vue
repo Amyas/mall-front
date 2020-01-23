@@ -4,9 +4,16 @@
   </ul>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
+  async asyncData({store,route}){
+    await store.dispatch('getList')
+  },
+  computed:{
+    ...mapState(['list'])
+  },
   mounted() {
-    console.log("list");
+    console.log("list",this.list);
   }
 };
 </script>
