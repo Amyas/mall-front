@@ -1,0 +1,94 @@
+/**
+ * 必备插件列表
+ * prettier
+ * vetur
+ */
+ {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.minimap.enabled": true,
+    "editor.roundedSelection": false,
+    "editor.renderIndentGuides": true,
+    "editor.formatOnSave": false,
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/.DS_Store": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/bower_components": true
+    },
+    "files.autoSave": "off",
+    "files.associations": {
+      "*.vue": "vue"
+    },
+    "emmet.syntaxProfiles": {
+      "vue-html": "html",
+      "vue": "html",
+      "html": "xhtml"
+    },
+    "files.eol": "\n",
+    "eslint.enable": true,
+    "eslint.run": "onType",
+    "eslint.options": {
+      "extensions": [
+        ".html",
+        ".js",
+        ".vue",
+        ".jsx"
+      ]
+    },
+    "eslint.autoFixOnSave": true,
+    "eslint.validate": [
+      {
+        "language": "html",
+        "autoFix": true
+      },
+      {
+        "language": "vue",
+        "autoFix": true
+      },
+      {
+        "language": "javascript",
+        "autoFix": true
+      },
+      {
+        "language": "javascriptreact",
+        "autoFix": true
+      }
+    ],
+    "git.ignoreLimitWarning": true,
+    "javascript.preferences.quoteStyle": "single",
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+    // 使用VSCode内置的formatter
+    "vetur.format.defaultFormatter.html": "none",
+    "vetur.format.defaultFormatter.js": "none",
+    "vetur.format.defaultFormatter.ts": "none",
+    "vetur.format.defaultFormatterOptions": {
+      // The default formatter for Vue templates.
+      "prettyhtml": {
+        "printWidth": 100,
+        // 单引号
+        "singleQuote": false,
+        // 是否强制格式化属性，单行显示
+        "wrapAttributes": false,
+        // 属性排序
+        "sortAttributes": false
+      }
+    },
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+  }
