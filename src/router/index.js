@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const List = () => import(/* webpackChunkName: "list" */ '@/List')
-const Item = () => import(/* webpackChunkName: "item" */ '@/Item')
+const List = () => import(/* webpackChunkName: "list" */ '@/views/List')
+const Item = () => import(/* webpackChunkName: "item" */ '@/views/Item')
 
 Vue.use(Router)
 
