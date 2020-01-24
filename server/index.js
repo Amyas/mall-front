@@ -1,33 +1,16 @@
-const fs = require('fs')
 const path = require('path')
 const Koa = require('koa')
-const Router = require('koa-router')
-const { createBundleRenderer } = require('vue-server-renderer')
+const router = require('./router')
 
 const app = new Koa()
-const router = new Router()
 
 const resolve = file => path.resolve(__dirname, '../', file)
 
 app.use(require('koa-static')(resolve('dist')))
 
-const template = fs.readFileSync(resolve('src/index.template.html'), 'utf-8')
-const serverBundle = require(resolve('dist/vue-ssr-server-bundle.json'))
-const clientManifest = require(resolve('dist/vue-ssr-client-manifest.json'))
-
-const renderer = createBundleRenderer(serverBundle, {
-  template,
-  clientManifest
-})
-
-router.get('*', async ctx => {
-  try {
-    const html = await renderer.renderToString(ctx)
-    ctx.body = html
-  } catch (error) {
-    ctx.body = error
-  }
-})
+if (process.env.NODE_ENV === 'dev') {
+  require('../build/dev-server').install(app)
+}
 
 app.use(router.routes())
 app.use(router.allowedMethods())

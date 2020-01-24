@@ -3,7 +3,7 @@ const baseConfig = require('./webpack.base.config')
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 
 module.exports = merge(baseConfig, {
-  entry: './src/entry-client.js',
+  entry: ['./src/entry-client.js'],
   optimization: {
     // webpack4模块分离
     splitChunks: {
